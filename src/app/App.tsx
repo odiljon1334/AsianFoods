@@ -10,6 +10,9 @@ import { UserPage } from './screens/userPage';
 import { HomeNavbar } from './components/headers/HomeNavbar';
 import { OtherNavbar } from './components/headers/OtherNavbar';
 import { Footer } from './components/footer';
+import { HelpPage } from './screens/helpPage';
+import "../css/navbar.css";
+
 
 function App() {
   const location = useLocation();
@@ -26,8 +29,11 @@ function App() {
           <Route path="/member-page">
             <UserPage />
           </Route>
+          <Route path="/help">
+            <UserPage />
+          </Route>
           <Route path="/">
-            <HomePage />
+            <HelpPage />
           </Route>
         </Switch>
         <Footer />
