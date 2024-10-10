@@ -32,10 +32,10 @@ function App() {
             <UserPage />
           </Route>
           <Route path="/help">
-            <UserPage />
+            <HelpPage />
           </Route>
           <Route path="/">
-            <HelpPage />
+            <HomePage />
           </Route>
         </Switch>
         <Footer />
