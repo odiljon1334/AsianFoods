@@ -249,11 +249,13 @@
 }
 
 .homepage .active-users-frame .category-title {
-    font-family: 'Dancing Script';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 43px;
+  font-family: Roboto Serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 42px;
+  letter-spacing: 0%;
+  text-align: left;
+  color: rgb(52, 52, 52);
 }
 
 .homepage .active-users-frame .main .cards-frame {
