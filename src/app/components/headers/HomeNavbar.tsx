@@ -1,14 +1,24 @@
 import { Box, Button, Container, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 export default function HomeNavbar() {
     const authMember = null;
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState<number>(0);
+    const [value, setValue] = useState<boolean>(true)
 
-    const buttonHandler = ( ) => {
+    useEffect(() => {
+        console.log("componentDidMount");
         setCount(count + 1);
+
+        return () => {
+            console.log("componentWillUnmount");
+        }
+    }, [value]); // array dp
+    /** HANDLERS **/
+    const buttonHandler = ( ) => {
+        setValue(!value);
     }
     return (
     <div className="home-navbar">
@@ -16,7 +26,7 @@ export default function HomeNavbar() {
             <Stack className="menu">
                 <Box>
                     <NavLink to={'/'}>
-                        <img className="brand-logo" src="/icons/burak.svg" />
+                        <img className="brand-logo" src="/icons/burak.svg"  alt={'brand-logo'}/>
                     </NavLink>
                 </Box>
 
