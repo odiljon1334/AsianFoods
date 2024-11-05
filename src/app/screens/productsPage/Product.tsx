@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Button, Container, Stack } from "@mui/material";
+import React, {useEffect} from "react";
+import {Box, Button, Container, Stack} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -8,14 +8,18 @@ import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { CssVarsProvider } from "@mui/joy/styles";
+import {CssVarsProvider} from "@mui/joy/styles";
 import Card from "@mui/joy/Card";
-import { useDispatch, useSelector } from "react-redux";
-import { Dispatch } from "@reduxjs/toolkit";
+import {useDispatch, useSelector} from "react-redux";
+import {Dispatch} from "@reduxjs/toolkit";
 import {setProducts} from "./slice";
 import {retrieveProducts} from "./selector";
 import {createSelector} from "reselect";
 import {Product} from "../../../lib/types/product";
+import ProductService from "../../services/ProductService";
+import {ProductCollection} from "../../../lib/enums/product.enum";
+import {serverApi} from "../../../lib/config";
+
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
   setProducts: (data: Product[]) => dispatch(setProducts(data)),
@@ -26,7 +30,7 @@ const productsRetrieve = createSelector(retrieveProducts, (products) => ({
   products,
 }));
 
-const products = [
+const productsArr = [
   { productName: 'Cutlet', imagePath: '/img/cutlet.webp' },
   { productName: 'Kebab', imagePath: '/img/kebab-fresh.webp' },
   { productName: 'Kebab', imagePath: '/img/kebab.webp' },
@@ -37,15 +41,30 @@ const products = [
   { productName: 'Kebab', imagePath: '/img/kebab-fresh.webp' },
 ];
 
-const returantImg = [
+const restaurantImg = [
   { restImg: '/img/gurme.webp' },
   { restImg: '/img/seafood.webp' },
   { restImg: '/img/sweets.webp' },
   { restImg: '/img/doner.webp' },
-]; 
+];
 
 
-export default function Product() {
+export default function ProductComponent() {
+  const {setProducts} = actionDispatch(useDispatch());
+  const {products} = useSelector(productsRetrieve);
+
+  useEffect(() => {
+    const product = new ProductService();
+    product.getProducts({
+      page: 1,
+      limit: 8,
+      order: "createdAt",
+      productCollection: ProductCollection.DISH,
+      search: "",
+    }).then((data) => {
+      setProducts(data);
+    }).catch(err => console.log("Xatolik!", err));
+  }, []);
   return (
     <div className={"products"}>
       <Container>
@@ -55,17 +74,18 @@ export default function Product() {
               <Box className={"title"}>Burak Restaurant</Box>
               <Stack className="single-search-form">
                 <input
-                className="search-box"
-                type="text"
-                placeholder="Type here..."
+                    type={"search"}
+                    className={"search-box"}
+                    name={"singleResearch"}
+                    placeholder={"Type here"}
                 />
                 <Button
-                color={"primary"} 
+                color={"primary"}
                 variant={"contained"}
                 className={"search-btn"}
+                endIcon={<SearchIcon />}
                 >
                   SEARCH
-                  <SearchIcon />
                 </Button>
               </Stack>
             </Stack>
@@ -73,21 +93,21 @@ export default function Product() {
 
           <Stack className={"dishes-filter-section"}>
             <Stack className={"dishes-filter-box"}>
-              <Button 
+              <Button
               variant={"contained"}
               color={"primary"}
               className={"order"}
               >
                 NEW
               </Button>
-              <Button 
+              <Button
               variant={"contained"}
               color={"secondary"}
               className={"order"}
               >
                 Price
               </Button>
-              <Button 
+              <Button
               variant={"contained"}
               color={"secondary"}
               className={"order"}
@@ -101,35 +121,35 @@ export default function Product() {
             <Stack className={"product-category"}>
               <Stack className="category-main">
               <Button
-              className={"order"} 
+              className={"order"}
               variant={"contained"}
               color={"secondary"}
               >
                 OTHER
               </Button>
               <Button
-              className={"order"}  
+              className={"order"}
               variant={"contained"}
               color={"secondary"}
               >
               DESSERT
               </Button>
               <Button
-              className={"order"}  
+              className={"order"}
               variant={"contained"}
               color={"secondary"}
               >
                 DRINK
               </Button>
               <Button
-              className={"order"}  
+              className={"order"}
               variant={"contained"}
               color={"secondary"}
               >
                 SALAD
               </Button>
               <Button
-              className={"order"}  
+              className={"order"}
               variant={"contained"}
               color={"primary"}
               >
@@ -137,28 +157,33 @@ export default function Product() {
               </Button>
               </Stack>
             </Stack>
-            
+
             <Stack className={"product-wrapper"}>
               {products.length !== 0 ? (
-                products.map((product, index) => {
+                  products.map((product: Product) => {
+                    const imagePath = `${serverApi}/${product.productImages[0]}`;
+                    const sizeVolume =
+                        product.productCollection === ProductCollection.DRINK
+                        ? product.productVolume + " litre"
+                        : product.productSize + " size";
                   return (
-                    <Stack key={index} className={"product-card"}>
-                      <Stack 
+                    <Stack key={product._id} className={"product-card"}>
+                      <Stack
                       className={"product-img"}
-                      sx={{ backgroundImage: `url(${product.imagePath})`}}
+                      sx={{ backgroundImage: `url(${imagePath})`}}
                       >
-                        <div className={"product-sale"}>Normal size</div>
+                        <div className={"product-sale"}>{sizeVolume}</div>
                         <Button className={"shop-btn"}>
-                          <img 
+                          <img
                           src={"/icons/shopping-cart.svg"}
                           style={{display: "flex"}}
                           />
                         </Button>
                         <Button className={"view-btn"} sx={{ right: "25px"}}>
-                          <Badge badgeContent={20} color="secondary">
-                            <RemoveRedEyeIcon 
+                          <Badge badgeContent={product.productViews} color="secondary">
+                            <RemoveRedEyeIcon
                             sx={{
-                              color: 20 > 0 ? "gray" : "white",
+                              color: product.productViews === 0 ? "gray" : "white",
                             }}
                             />
                           </Badge>
@@ -170,7 +195,7 @@ export default function Product() {
                         </span>
                         <div className={"product-desc"}>
                           <MonetizationOnIcon />
-                          {12}
+                          {product.productPrice}
                         </div>
                       </Box>
                     </Stack>
@@ -183,11 +208,11 @@ export default function Product() {
           </Stack>
 
           <Stack className={"pagination-section"}>
-            <Pagination 
+            <Pagination
             count={3}
             page={1}
             renderItem={(item) => (
-              <PaginationItem 
+              <PaginationItem
               components={{
                 previous: ArrowBackIcon,
                 next: ArrowForwardIcon,
@@ -207,14 +232,14 @@ export default function Product() {
               <Box className={"family-brands"}>Our Family Brands</Box>
               <Stack className={"restaurant-img"}>
                 <CssVarsProvider>
-                  {returantImg.map((ele, index) => {
+                  {restaurantImg.map((ele, index) => {
                     return (
                     <Card key={index} className={"card"}>
                       <img src={ele.restImg} alt="" />
                     </Card>
                     )
                   })}
-                  
+
                 </CssVarsProvider>
               </Stack>
             </Stack>
@@ -225,7 +250,7 @@ export default function Product() {
         <Container>
           <Stack className={"address-area"}>
             <Box className={"address-title"}>Our address</Box>
-            <iframe 
+            <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23952.76401229905!2d69.24764389999999!3d41.2994958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4e82e558c73%3A0x70e46bbd6e634e7b!2sTashkent%2C%20Uzbekistan!5e0!3m2!1sen!2sus!4v1697133496444!5m2!1sen!2sus"
             referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
