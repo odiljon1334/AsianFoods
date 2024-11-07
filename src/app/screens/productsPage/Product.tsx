@@ -57,7 +57,7 @@ export default function ProductComponent() {
     product
         .getProducts(productSearch)
         .then((data) => {setProducts(data)})
-        .catch(err => console.log("Xatolik!", err));
+        .catch(err => console.log( err));
   }, [productSearch]);
 
   useEffect(() => {
