@@ -5,7 +5,7 @@ import {Member} from "./member";
 export interface AppRootState {
     homePage: HomePageState;
     productsPage: ProductsPageState;
-}
+};
 
 /** HOMEPAGE PAGE **/
 export interface HomePageState {

@@ -8,7 +8,6 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import Typography from '@mui/joy/Typography';
 import { CssVarsProvider } from "@mui/joy/styles";
 import DescriptioOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
-
 import { useSelector } from "react-redux";
 import {createSelector} from "reselect";
 import {retrievePopularDishes} from "./selector";
@@ -82,8 +81,8 @@ export default function () {
     </Typography>
     </CardOverflow>
     </Card>
-    </CssVarsProvider> 
-                                            );
+    </CssVarsProvider>
+          );
       })
     ) : (
       <Box className={"no-data"}>Popular products are not available!</Box>

@@ -28,6 +28,8 @@ export default function HomePage() {
     useEffect(() => {
         // Backend server data request => Data
         const product = new ProductService();
+        const member = new MemberService();
+
         product
             .getProducts({
             page: 1,
@@ -48,7 +50,6 @@ export default function HomePage() {
             setNewDishes(data);
         }).catch(err => console.log(err));
 
-        const member = new MemberService();
         member
             .getTopUsers()
             .then((data) => setTopUsers(data))
