@@ -1,9 +1,15 @@
 import { Box, Button, Container, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
+import {CartItem} from "../../../lib/types/search";
+
+interface HomeNavbarProps {
+    cartItems: CartItem[];
+}
 
 
-export default function HomeNavbar() {
+export default function HomeNavbar(props: HomeNavbarProps) {
+    const {cartItems} = props;
     const authMember = null;
 
     return (
@@ -38,7 +44,7 @@ export default function HomeNavbar() {
                     <NavLink to={'/help'} activeClassName="underline">Help</NavLink>
                 </Box>
                 {/* BASKET */}
-                <Basket />
+                <Basket cartItems={cartItems}/>
                 {!authMember ? (
                     <Box>
                         <Button className="login-button" variant="contained">Login</Button>
