@@ -120,7 +120,7 @@ export default function Basket(props: BasketProps) {
                       <span className={"product-name"}>{item.name}</span>
                       <p className={"product-price"}>${item.price} x {item.quantity}</p>
                       <Box sx={{ minWidth: 120 }}>
-                        <div className="col-2">.
+                        <div className="col-2">
                           <button  onClick={() => onRemove(item)} className="remove">-</button>{" "}
                           <button onClick={() => onAdd(item)} className="add">+</button>
                         </div>
