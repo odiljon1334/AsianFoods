@@ -9,11 +9,13 @@ interface HomeNavbarProps {
     onRemove: (item: CartItem) => void;
     onDelete: (item: CartItem) => void;
     onDeleteAll: () => void;
+    setSignupOpen: (isOpen: boolean) => void;
+    setLoginOpen: (isOpen: boolean) => void;
 }
 
 
 export default function HomeNavbar(props: HomeNavbarProps) {
-    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll} = props;
+    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setSignupOpen, setLoginOpen} = props;
     const authMember = null;
 
     return (
@@ -57,7 +59,13 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 />
                 {!authMember ? (
                     <Box>
-                        <Button className="login-button" variant="contained">Login</Button>
+                        <Button
+                            className="login-button"
+                            variant="contained"
+                            onClick={() => setLoginOpen(true)}
+                        >
+                            Login
+                        </Button>
                     </Box>
                     ) : (
                     <img 
@@ -84,6 +92,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                             <Button 
                             variant={"contained"} 
                             className={"signup-button"}
+                            onClick={() => setSignupOpen(true)}
                             >
                                 SIGN UP
                             </Button>
