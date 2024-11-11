@@ -36,7 +36,7 @@ export default function OtherNavbar(props: OtherNavbarProps) {
         handleCloseLogout,
         handleLogoutRequest,
     } = props;
-    const {authMember} = useGlobals()
+    const {authMember} = useGlobals();
     return (
         <div className="other-navbar">
         <Container className="navbar-container">

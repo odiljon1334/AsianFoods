@@ -9,15 +9,15 @@ import OtherNavbar from './components/headers/OtherNavbar';
 import Footer from './components/footer';
 import HelpPage from './screens/helpPage';
 import useBasket from "./hooks/useBasket";
-import '../css/app.css';
-import "../css/navbar.css";
-import "../css/footer.css";
 import AuthenticationModal from "./components/auth";
 import {sweetErrorHandling, sweetTopSuccessAlert} from "../lib/sweetAlert";
 import {Messages} from "../lib/config";
 import {T} from "../lib/types/common";
 import MemberService from "./services/MemberService";
 import {useGlobals} from "./hooks/useGlobals";
+import '../css/app.css';
+import "../css/navbar.css";
+import "../css/footer.css";
 
 
 
@@ -38,12 +38,13 @@ function App() {
     setAnchorEl(e.currentTarget);
   };
   const handleCloseLogout = () => setAnchorEl(null);
-  const handleLogoutRequest = () => async () => {
+
+  const handleLogoutRequest = async () => {
     try{
       const member = new MemberService();
       await member.logout();
       setAuthMember(null);
-        await sweetTopSuccessAlert("success:", 700);
+      await sweetTopSuccessAlert("success:", 2000);
     } catch(err) {
       console.log(err);
       sweetErrorHandling(Messages.error1).then();
