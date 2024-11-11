@@ -55,7 +55,9 @@ class MemberService {
 
     public async login(input: LoginInput): Promise<Member> {
         try{
+            console.log("inputLogin:", input);
             const url = this.path + "/member/login";
+
             const result = await axios.post(url, input, {withCredentials: true});
             console.log("login:", result);
             const member: Member = result.data.member;
@@ -64,6 +66,21 @@ class MemberService {
             return member;
         } catch (err) {
             console.log("Error, login", err);
+            throw err;
+        }
+    };
+
+    public async logout(): Promise<void> {
+        try{
+            const url = this.path + "/member/logout";
+
+            const result = await axios.post(url, {},{withCredentials: true});
+            console.log("logout:", result);
+
+            localStorage.removeItem("memberData");
+            return result.data.logout;
+        } catch (err) {
+            console.log("Error, logout", err);
             throw err;
         }
     }
