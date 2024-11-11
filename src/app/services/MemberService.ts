@@ -73,6 +73,7 @@ class MemberService {
     public async logout(): Promise<void> {
         try{
             const url = this.path + "/member/logout";
+            console.log(url);
 
             const result = await axios.post(url, {},{withCredentials: true});
             console.log("logout:", result);
