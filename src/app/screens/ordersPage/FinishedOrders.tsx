@@ -13,7 +13,6 @@ const fineshedOrdersRetriever = createSelector(retrieveFinishedOrders,
     (finishedOrders) => ({ finishedOrders })
 );
 
-
 export default function FinishedOrders() {
     const {finishedOrders} = useSelector(fineshedOrdersRetriever);
     return (
@@ -38,10 +37,10 @@ export default function FinishedOrders() {
                                          <p className={"title-dish"}>{product.productName}</p>
                                          <Box className={"price-box"}>
                                             <p>${item.itemPrice}</p>
-                                            <img src={"/icons/close.svg"} />
-                                            <p>{item.itemQuantity}</p>
-                                            <img src="/icons/pause.svg"/>
-                                            <p style={{marginLeft: "15px"}}>${item.itemQuantity * item.itemPrice}</p>
+                                            <img src={"/icons/close.svg"} style={{marginLeft: "3px"}}/>
+                                            <p style={{marginLeft: "3px"}}>{item.itemQuantity}</p>
+                                            <img src="/icons/pause.svg" style={{marginLeft: "3px"}}/>
+                                            <p style={{marginLeft: "5px"}}>${item.itemQuantity * item.itemPrice}</p>
                                          </Box>
                                     </Box>
                                 );
@@ -51,10 +50,10 @@ export default function FinishedOrders() {
                             <Box className={"box-total"}>
                                 <p>Product price:</p>
                                 <p>${order.orderTotal - order.orderDelivery}</p>
-                                <img src={"/icons/plus.svg"} style={{marginLeft: "20px"}} alt="" />
+                                <img src={"/icons/plus.svg"} style={{marginLeft: "7px"}} alt="" />
                                 <p>Delivery cost:</p>
                                 <p>${order.orderDelivery}</p>
-                                <img src={"/icons/pause.svg"} style={{marginLeft: "20px"}} />
+                                <img src={"/icons/pause.svg"} style={{marginLeft: "7px"}} />
                                 <p>Total</p>
                                 <p>${order.orderTotal}</p>
                             </Box>

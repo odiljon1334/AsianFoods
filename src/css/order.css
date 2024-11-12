@@ -261,7 +261,7 @@
     position: relative;
     max-width: 170px;
     height: 100%;
-    margin-left: 170px;
+    margin-left: 180px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -344,6 +344,7 @@
 .order-page .order-main-content .order-main-box .total-price-finish .box-total {
     position: relative;
     max-width: 535px;
+    margin-left: 10px;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -362,7 +363,7 @@
 }
 
 .order-page .total-price-finish .box-total p {
-    margin-left: 20px;
+    margin-left: 7px;
     font-family: 'Commissioner';
     font-style: normal;
     font-weight: 600;

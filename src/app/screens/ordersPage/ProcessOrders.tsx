@@ -6,16 +6,55 @@ import { useSelector } from "react-redux";
 import {createSelector} from "reselect";
 import {retrieveProcessOrders} from "./selector";
 import {Product} from "../../../lib/types/product";
-import {serverApi} from "../../../lib/config";
-import { Order, OrderItem } from "../../../lib/types/order";
+import {Messages, serverApi} from "../../../lib/config";
+import { Order, OrderItem, OrderUpdateInput } from "../../../lib/types/order";
+import { useGlobals } from "../../hooks/useGlobals";
+import { OrderStatus } from "../../../lib/enums/order.enum";
+import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import OrderService from "../../services/OrderService";
+import { T } from "../../../lib/types/common";
 
 /** REDUX SLICE & SELECTOR */
 const processOrdersRetriever = createSelector(retrieveProcessOrders,
     (processOrders) => ({ processOrders })
 );
 
-export default function ProcessOrders() {
+interface ProcesOrdersProps{
+    setValue: (input: string) => void;
+}
+
+export default function ProcessOrders(props: ProcesOrdersProps) {
+    const {setValue} = props;
     const {processOrders} = useSelector(processOrdersRetriever);
+    const {authMember, setOrderBuilder} = useGlobals();
+
+        /** HANDLERS **/
+        const finishOrderHandler = async (e: T) => {
+            try {
+                if (!authMember) throw new Error(Messages.error2);
+    
+                const orderId = e.target.value;
+                const input: OrderUpdateInput = {
+                    orderId: orderId, 
+                    orderStatus: OrderStatus.FINISH
+                };
+        
+                const confirmation = window.confirm(
+                    "Have you received your order?"
+                );
+                if (confirmation) {
+                    const order = new OrderService();
+                    await order.updateOrders(input);
+                    setValue("3");
+                    setOrderBuilder(new Date());
+                }
+            } catch (err) {
+                console.log(err);
+                sweetErrorHandling(err)
+                .then();
+                
+            }
+        };
 
     return (
         <TabPanel value={"2"}>
@@ -63,8 +102,10 @@ export default function ProcessOrders() {
                                     {moment().format("YY-MM-DD, HH:mm")}
                                 </p>
                                 <Button 
+                                value={order._id}
                                 variant="contained"
                                 className={"verify-button"}
+                                onClick={finishOrderHandler}
                                 >
                                     VERIFY TO FULFIL
                                 </Button>
