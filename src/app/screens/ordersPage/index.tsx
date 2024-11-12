@@ -1,5 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import { Box, Container, Grid, Input, Stack, TextField } from "@mui/material";
+import { Dispatch } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -7,8 +9,16 @@ import PausedOrders from "./PausedOrders";
 import ProcessOrders from "./ProcessOrders";
 import FinishedOrders from "./FinishedOrders";
 import LocationOnIcon from "@mui/icons-material/LocationOn"
+import { Order } from "../../../lib/types/order";
+import { setFinishedOrders, setPausedOrders, setProcessOrders } from "./slice";
 import "../../../css/order.css";
 
+
+const actionDispatch = (dispatch: Dispatch) => ({
+  setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
+  setProcessOrders: (data: Order[]) => dispatch(setProcessOrders(data)),
+  setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
+});
 
 const paymentMethod = [
   { imagePath: "/icons/western-card.svg" },
@@ -17,8 +27,12 @@ const paymentMethod = [
   { imagePath: "/icons/visa-card.svg" },
 ];
 
+/** HANDLERS* */
+
+
 export default function OrdersPage() {
   const [value, setValue] = useState("1");
+  const {setPausedOrders, setProcessOrders, setFinishedOrders} = actionDispatch(useDispatch());
 
   const handleChange = (e: SyntheticEvent, newValue: string)  => {
     setValue(newValue);
