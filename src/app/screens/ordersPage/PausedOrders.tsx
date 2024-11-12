@@ -6,7 +6,7 @@ import {createSelector} from "reselect";
 import {retrievePausedOrders} from "./selector";
 import {Product} from "../../../lib/types/product";
 import {serverApi} from "../../../lib/config";
-import { OrderItem } from "../../../lib/types/order";
+import { Order, OrderItem } from "../../../lib/types/order";
 
 /** REDUX SLICE & SELECTOR */
 const pausedOrdersRetriever = createSelector(retrievePausedOrders,
@@ -19,7 +19,7 @@ export default function PausedOrders() {
     return (
         <TabPanel value={"1"}>
             <Stack>
-                {pausedOrders?.map((order) => {
+                {pausedOrders?.map((order: Order) => {
                     return (
                         <Box key={order._id} className={"order-main-box"}>
                             <Box className={"order-box-scroll"}>
@@ -77,7 +77,7 @@ export default function PausedOrders() {
                 })}
 
                 {!pausedOrders || 
-                (pausedOrders.length === 0) && (
+                (pausedOrders.length === 0 && (
                     <Box display={"flex"} flexDirection={"row"} justifyContent={"center"}>
                         <img 
                         src={"/icons/noimage-list.svg"}
@@ -85,7 +85,7 @@ export default function PausedOrders() {
                         style={{width: 300, height: 300}}
                           />
                     </Box>
-                )}
+                ))}
             </Stack>
         </TabPanel>
     )
