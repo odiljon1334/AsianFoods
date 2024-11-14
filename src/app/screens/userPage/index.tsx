@@ -62,7 +62,7 @@ export default function UserPage() {
                   {
                   authMember?.memberAddress 
                   ? authMember.memberAddress 
-                  : "No address"
+                  : "Do not exist"
                   }
                   </span>
               </Box>

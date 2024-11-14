@@ -16,6 +16,8 @@ import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
 import "../../../css/order.css";
 import { useHistory } from "react-router-dom";
+import { serverApi } from "../../../lib/config";
+import { MemberType } from "../../../lib/enums/member.enum";
 
 
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -95,27 +97,40 @@ export default function OrdersPage() {
               <Box className={"member-box"}>
                 <div className={"order-user-img"}>
                   <img 
-                  src={"/icons/default-user.svg"}
+                  src={
+                    authMember?.memberImage 
+                    ? `${serverApi}/${authMember?.memberImage}`
+                    : "/icons/default-user.svg"
+                  }
                   className={"order-user-avatar"}
                   alt={""}
                    />
                    <div className={"order-user-icon-box"}>
                   <img 
-                  src={"/icons/user-badge.svg"}
+                  src={ 
+                    authMember?.memberType === MemberType.RESTAURANT 
+                    ? "/icons/restaurant.svg" 
+                    : "/icons/user-badge.svg"
+                  }
                   className={"order-user-prof-img"}
                   alt={""}
                    />
                 </div>
                 </div>
-                <span className={"order-user-name"}>James</span>
-                <span className={"order-user-prof"}>User</span>
+                <span className={"order-user-name"}>{authMember?.memberNick}</span>
+                <span className={"order-user-prof"}>{authMember?.memberType}</span>
               </Box>
               <Box className={"liner"}></Box>
               <Box className={"order-user-address"}>
                 <div style={{display: "flex"}}>
                   <LocationOnIcon />
                 </div>
-                <Box className={"spec-address-txt"}>South Korea, Busan</Box>
+                <Box className={"spec-address-txt"}>{
+                authMember?.memberAddress 
+                ? authMember.memberAddress 
+                : "No address"
+                }
+                </Box>
               </Box>
             </Box>
             <Stack className="order-card-right">
