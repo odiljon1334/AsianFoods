@@ -15,4 +15,3 @@ export const useGlobals = () => {
     if(context === undefined) throw new Error("Uselobals withit Provider");
     return context;
 };
-
