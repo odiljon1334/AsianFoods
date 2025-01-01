@@ -45,8 +45,9 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         <Container className="navbar-container">
             <Stack className="menu">
                 <Box>
-                    <NavLink to={'/'}>
-                        <img className="brand-logo" src="/icons/burak.svg"  alt={'brand-logo'}/>
+                    <NavLink to={'/'} className={"logo-box"}>
+                        <img className="brand-logo" src="/icons/japanese-food.svg"  alt={'brand-logo'}/>
+                        <strong className={"brand-title"}>Asian Foods</strong>
                     </NavLink>
                 </Box>
 
@@ -150,13 +151,10 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             <Stack className={"header-frame"}>
                 <Stack className={"detail"}>
                     <Box className={"head-main-text"}>
-                        World's Most Delicious Cousine
+                    Best food for your taste
                     </Box>
                     <Box className={"wel-txt"}>
-                        The Choice, not just a choice
-                    </Box>
-                    <Box className={"service-text"}>
-                        24 hours service
+                    Discover delectable cuisine and unforgettable moments<br/> in our welcoming, culinary haven.
                     </Box>
                     <Box className={"signup"}>
                         {!authMember ? (
@@ -170,9 +168,6 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                             ) : null}
                     </Box>
                 </Stack>
-                <Box className={"logo-frame"}>
-                    <div className={"logo-img"}></div>
-                </Box>
             </Stack>
         </Container>
     </div>

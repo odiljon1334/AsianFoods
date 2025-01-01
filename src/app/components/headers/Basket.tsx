@@ -73,7 +73,7 @@ export default function Basket(props: BasketProps) {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <Badge badgeContent={cartItems.length} color="secondary">
+        <Badge badgeContent={cartItems.length} color="primary">
           <img src={"/icons/shopping-cart.svg"} />
         </Badge>
       </IconButton>
@@ -120,8 +120,7 @@ export default function Basket(props: BasketProps) {
                 <Stack flexDirection={"row"} >
                   <div>Cart Products:</div>
                   <DeleteForeverIcon
-                      sx={{ml: "290px", cursor: "pointer"}}
-                      color={"primary"}
+                      sx={{ml: "290px", cursor: "pointer", color: "white"}}
                       onClick={() => onDeleteAll()}
                   />
                 </Stack>

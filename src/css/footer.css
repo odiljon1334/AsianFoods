@@ -1,3 +1,22 @@
+.footer-brand {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-brand .footer-title {
+  margin-top: 15px;
+  color: #FFF;
+  font-family: "Playfair Display";
+  font-size: 32.67px;
+  font-style: 'italic';
+  font-weight: 600;
+  line-height: 29.333px; /* 89.787% */
+  letter-spacing: -0.4px;
+}
+
 .foot-desc-txt {
   margin-top: 22px;
   font-family: "Poppins";
@@ -11,9 +30,15 @@
 .sns-context {
   margin-top: 17px;
   width: 137px;
+  gap: 8px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.sns-context img{
+  width: 35px;
+  height: 36px;
 }
 
 .foot-category-title {

@@ -6,14 +6,13 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import Typography from '@mui/joy/Typography';
 import {CssVarsProvider} from "@mui/joy/styles";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import Divider from "../../components/divider";
-
 import {useSelector} from "react-redux";
 import {createSelector} from "reselect";
 import {retrieveNewDishes} from "./selector";
 import {Product} from "../../../lib/types/product";
 import {serverApi} from "../../../lib/config";
 import {ProductCollection} from "../../../lib/enums/product.enum";
+import { useHistory } from "react-router-dom";
 
 /** REDUX SLICE & SELECTOR */
 const newDishesRetriever = createSelector(retrieveNewDishes,
@@ -21,13 +20,18 @@ const newDishesRetriever = createSelector(retrieveNewDishes,
 );
 
 export default function NewDishes() {
-    const { newDishes } = useSelector(newDishesRetriever);
+  const { newDishes } = useSelector(newDishesRetriever);
+  const history = useHistory();
+
+  const chosenDishHandler = (id: string ) => {
+    history.push(`/products/${id}`)
+  }
 
   return (
     <div className={"new-products-frame"}>
       <Container>
         <Stack className={"main"}>
-          <Box className={"category-title"}>Fresh Menu</Box>
+          <Box className={"category-title"}>Our Menu</Box>
           <Stack className={"cards-frame"}>
               <CssVarsProvider>
                 {newDishes.length !== 0 ? (
@@ -37,21 +41,31 @@ export default function NewDishes() {
                           ? product.productVolume + "l"
                           : product.productSize + " size";
                     return (
-                <Card key={product._id} variant="outlined" className={"card"}>
+                <Card 
+                key={product._id} 
+                variant="outlined" 
+                className={"card"}
+                onClick={() => chosenDishHandler(product._id)}
+                >
                   <CardOverflow>
-                    <div className="product-sale">{sizeVolume}</div>
-                    <AspectRatio ratio="1">
+                    <AspectRatio variant="plain" ratio="1">
                       <img src={imagePath} alt="" />
                     </AspectRatio>
                   </CardOverflow>
-                  <CardOverflow variant="soft" className={"product-detail"}>
+                  <CardOverflow variant="plain" className={"product-detail"}>
+                  <Typography className={"desc"}>
+                          {product.productDesc}
+                        </Typography>
                     <Stack className="info">
-                      <Stack flexDirection={"row"}>
+                      <Stack flexDirection={"row"} sx={{gap: "10px"}}>
                         <Typography className={"title"}>
+                        <img className="desc-img" src="/icons/ForkKnife.svg" alt="" />
                           {product.productName}
                         </Typography>
-                          <Divider  width="2" height="24" bg="#d9d9d9" />
-                        <Typography className={"price"}>${product.productPrice}</Typography>
+                        <Typography className={"price"}>
+                        <p className="price-cnt">Price:</p>
+                          ${product.productPrice}
+                        </Typography>
                       </Stack>
                       <Stack >
                         <Typography className={"views"}>

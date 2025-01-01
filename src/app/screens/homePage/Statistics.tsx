@@ -8,23 +8,41 @@ export default function Statistics() {
       <Container>
         <Stack className={"info"}>
         <Stack className={"static-box"}>
-          <Box className="static-num">12</Box>
-          <Box className="static-text">Restaurant</Box>
+          <Box className="static-num">
+            <img style={{width: "55px", height: "55px"}} src="/icons/delivery-truck.svg" alt="" />
+          </Box>
+         <div>
+         <Box className="static-text">Free Shipping</Box>
+         <p className="static-free">Free shipping on all your order</p>
+         </div>
         </Stack>
-        <Divider height="64" width="2" bg="#E3C08D"/>
         <Stack className={"static-box"}>
-          <Box className="static-num">8</Box>
-          <Box className="static-text">Experience</Box>
+          <Box className="static-num">
+            <img style={{width: "55px", height: "55px"}} src="/icons/headphones.svg" alt="" />
+          </Box>
+         <div>
+         <Box className="static-text">Customer Support 24/7</Box>
+         <p className="static-free">Instant access to Support</p>
+         </div>
         </Stack>
-          <Divider height="64" width="2" bg="#E3C08D"/>
-        <Stack className={"static-box"}>
-          <Box className="static-num">50+</Box>
-            <Box className="static-text">Menu</Box>
+          <Stack className={"static-box"}>
+          <Box className="static-num">
+            <img style={{width: "55px", height: "55px"}} src="/icons/shopping-bag.svg" alt="" />
+          </Box>
+         <div>
+         <Box className="static-text">100% Secure Payment</Box>
+         <p className="static-free">We ensure your money is save</p>
+         </div>
         </Stack>
-          <Divider height="64" width="2" bg="#E3C08D"/>
-        <Stack className={"static-box"}>
-          <Box className="static-num">200+</Box>
-          <Box className="static-text">Clients</Box>
+          <Stack className={"static-box"}>
+          <Box className="static-num">
+            <img style={{width: "55px", height: "55px"}} src="/icons/package.svg" alt="" />
+          </Box>
+         <div>
+         <Box className="static-text">Money-Back Guarantee</Box>
+         <p className="static-free">
+         If you cancel the order, 3 Days Money-Back Guarantee</p>
+         </div>
         </Stack>
         </Stack>
       </Container>

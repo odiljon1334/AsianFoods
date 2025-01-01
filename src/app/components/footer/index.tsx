@@ -7,7 +7,7 @@ const Footers = styled.div`
   width: 100%;
   height: 590px;
   display: flex;
-  background: #343434;
+  background: #474747;
   background-size: cover;
 `;
 
@@ -19,19 +19,18 @@ export default function Footer() {
       <Container>
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
-            <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
+            <Box className={"footer-brand"}>
+              <img width={"56px"} height={"56px"} src={"/icons/japanese.svg"} />
+              <span className="footer-title">Asian Foods</span>
             </Box>
             <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
+            In the new era of technology we look a in the future with certainty and pride to for our company and.
             </Box>
             <Box className="sns-context">
               <img src={"/icons/facebook.svg"} />
               <img src={"/icons/twitter.svg"} />
               <img src={"/icons/instagram.svg"} />
-              <img src={"/icons/youtube.svg"} />
+              <img src={"/icons/github.svg"} />
             </Box>
           </Stack>
           <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
@@ -57,15 +56,15 @@ export default function Footer() {
                 >
                   <Box flexDirection={"row"} className={"find-us"}>
                     <span>L.</span>
-                    <div>Downtown, Dubai</div>
+                    <div>Downtown, Uzbekistan</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>P.</span>
-                    <div>+971 4 554 7777</div>
+                    <div>+99895 577-54-54</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>E.</span>
-                    <div>devexuz@gmail.com</div>
+                    <div>odil1334@gmail.com</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>H.</span>
@@ -81,7 +80,7 @@ export default function Footer() {
           sx={{ mt: "80px" }}
         ></Stack>
         <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
+        © Copyright 2023 Hashtag Developer. All Rights Reserved
         </Stack>
       </Container>
     </Footers>
