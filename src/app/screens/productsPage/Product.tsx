@@ -1,13 +1,14 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
-import {Box, Button, Container, Stack} from "@mui/material";
+import {Box, CardContent, Button, Container, NativeSelect, Stack, Typography} from "@mui/material";
+import { AspectRatio, Badge, CardOverflow, Chip, Link } from "@mui/joy";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import Badge from "@mui/material/Badge";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import RemoveRedEyeRoundedIcon from '@mui/icons-material/RemoveRedEyeRounded';
 import {CssVarsProvider} from "@mui/joy/styles";
 import Card from "@mui/joy/Card";
 import {useDispatch, useSelector} from "react-redux";
@@ -19,8 +20,12 @@ import {Product, ProductInquiry} from "../../../lib/types/product";
 import ProductService from "../../services/ProductService";
 import {ProductCollection} from "../../../lib/enums/product.enum";
 import {serverApi} from "../../../lib/config";
-import {useHistory} from "react-router-dom";
 import {CartItem} from "../../../lib/types/search";
+import FormControl from '@mui/material/FormControl';
+import { useHistory } from "react-router-dom";
+
+
+
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -79,11 +84,13 @@ export default function ProductComponent(props: ProductsProps) {
     productSearch.productCollection = collection;
     setProductSearch({...productSearch});
   };
-
-  const searchOrderHandler = (order: string) => {
+  const searchOrderHandler = (e: ChangeEvent<any>) => {
+    const selectedValue = e.target.value as string;
     productSearch.page = 1;
-    productSearch.order = order;
+    productSearch.order = selectedValue;
     setProductSearch({...productSearch});
+    console.log(selectedValue); // Tanlangan qiymat
+    // Bu yerda sort qilish funksiyasini chaqiring
   };
   
   const searchProductHandler = () => {
@@ -106,7 +113,7 @@ export default function ProductComponent(props: ProductsProps) {
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Stack className={"avatar-big-box"}>
             <Stack className="main-title">
-              <Box className={"title"}>Burak Restaurant</Box>
+              <Box className={"title"}>Asian Foods</Box>
               <Stack className="single-search-form">
                 <input
                     type={"search"}
@@ -133,33 +140,26 @@ export default function ProductComponent(props: ProductsProps) {
           </Stack>
 
           <Stack className={"dishes-filter-section"}>
-            <Stack className={"dishes-filter-box"}>
-              <Button
-              variant={"contained"}
-              color={productSearch.order === "createdAt" ? "primary" : "secondary"}
-              className={"order"}
-              onClick={() => searchOrderHandler("createdAt")}
-              >
-                NEW
-              </Button>
-              <Button
-              variant={"contained"}
-              color={
-                productSearch.order === "productPrice" ? "primary" : "secondary"
-              }
-              className={"order"}
-              onClick={() => searchOrderHandler("productPrice")}
-              >
-                Price
-              </Button>
-              <Button
-              variant={"contained"}
-              color={productSearch.order === "productViews" ? "primary" : "secondary"}
-              className={"order"}
-              onClick={() => searchOrderHandler("productViews")}
-              >
-                Views
-              </Button>
+            <Stack className={"dishes-filter-box"}> 
+          <Box className={"right"}>
+            <span>Sort By :</span>
+           <div style={{ minWidth: 80}}>
+           <FormControl color="secondary" fullWidth sx={{border: "none"}}>
+            <NativeSelect
+              defaultValue={"createdAt"}
+              color={"primary"}
+              onChange={searchOrderHandler}
+              inputProps={{
+              name: 'age',
+              id: 'uncontrolled-native',
+              }}>
+              <option value={"createdAt"}>NEW</option>
+              <option value={"productPrice"}>PRICE</option>
+              <option value={"productViews"}>VIEWS</option>
+            </NativeSelect>
+          </FormControl>
+          </div>
+          </Box>
             </Stack>
           </Stack>
 
@@ -238,51 +238,83 @@ export default function ProductComponent(props: ProductsProps) {
                         ? product.productVolume + " litre"
                         : product.productSize + " size";
                   return (
-                    <Stack key={product._id}
-                           className={"product-card"}
-                           onClick={() => chosenDishHandler(product._id)}
-                    >
-                      <Stack
-                      className={"product-img"}
-                      sx={{ backgroundImage: `url(${imagePath})`}}
+                    <Stack 
+                    key={product._id}
+                    className={"product-card"}
+                    onClick={() => chosenDishHandler(product._id)} >
+                  <CssVarsProvider>
+                    <Card sx={{ width: 300, boxShadow: 'xl', }} variant="plain">
+                    <CardOverflow>
+                      <AspectRatio variant="plain" sx={{ minWidth: 200 }} className={"product-img"}>
+                      <img
+                        src={imagePath}
+                        loading="lazy"
+                        alt=""/>
+                        <Badge 
+                        className={"view-btn"} 
+                        badgeContent={product.productViews}
+                        badgeInset="10%" 
+                        variant="plain"
+                        color="danger" 
+                        size="sm">
+                        <Typography sx={{ fontSize: 'xl' }}>
+                          <RemoveRedEyeRoundedIcon
+                          sx={{
+                            color: product.productViews === 0 ? "gray" : "white",
+                          }}
+                           />
+                        </Typography>
+                        </Badge>
+                      </AspectRatio>
+                    </CardOverflow>
+                    <CardContent>
+                    <Typography className="product-title">
+                    <img style={{width: "24px", height: "24px", borderRadius: "50%", backgroundColor: "none"}} src="/icons/ForkKnife.svg" alt="" />
+                      {product.productName}
+                      </Typography>
+                    <Link
+                      href="#product-card"
+                      color="primary"
+                      className={"link-desc"}
+                      textColor="text.primary"
+                      overlay
+                      endDecorator={<ArrowOutwardIcon />}
+                      sx={{ 
+                        fontWeight: 'md', 
+                      }}
                       >
-                        <div className={"product-sale"}>{sizeVolume}</div>
-                        <Button className={"shop-btn"}
-                        onClick={(e) => {
-                          onAdd({
-                            _id: product._id,
-                            quantity: 1,
-                            name: product.productName,
-                            price: product.productPrice,
-                            image: product.productImages[0],
-                          });
-                          e.stopPropagation();
-                        }}
-                        >
-                          <img
-                          src={"/icons/shopping-cart.svg"}
-                          style={{display: "flex"}}
-                          />
-                        </Button>
-                        <Button className={"view-btn"} sx={{ right: "25px"}}>
-                          <Badge badgeContent={product.productViews} color="secondary">
-                            <RemoveRedEyeIcon
-                            sx={{
-                              color: product.productViews === 0 ? "gray" : "white",
-                            }}
-                            />
-                          </Badge>
-                        </Button>
-                      </Stack>
-                      <Box className={"product-desc"}>
-                        <span className={"product-title"}>
-                          {product.productName}
-                        </span>
-                        <div className={"product-desc"}>
-                          <MonetizationOnIcon />
-                          {product.productPrice}
+                        <div>{product.productDesc}</div>
+                    </Link>
+
+                    <Typography
+                    className="product-desc"
+                      sx={{ mt: 5, fontWeight: 'sm'}}>
+                        <div>
+                        {product.productPrice}
+                        <MonetizationOnIcon /> 
                         </div>
-                      </Box>
+                      <Chip component="span" size="md" variant="soft" color="success">
+                      {sizeVolume}
+                      </Chip>
+                    </Typography>
+                    </CardContent>
+                    <CardOverflow>
+                    <button 
+                    className="btn-add"
+                    onClick={(e) => {
+                      onAdd({
+                        _id: product._id,
+                        quantity: 1,
+                        name: product.productName,
+                        price: product.productPrice,
+                        image: product.productImages[0],
+                      });
+                      e.stopPropagation();
+                    }}
+                    >Add to cart</button>
+                    </CardOverflow>
+                    </Card>
+                  </CssVarsProvider>
                     </Stack>
                   );
                 })
@@ -307,7 +339,7 @@ export default function ProductComponent(props: ProductsProps) {
                 next: ArrowForwardIcon,
               }}
               {...item}
-              color={"secondary"}
+              color={"primary"}
               />
             )}
             onChange={handlePagination}
