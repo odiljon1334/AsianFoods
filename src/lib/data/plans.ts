@@ -1,19 +1,19 @@
 export const plans = [
 	{
-		title: 'Hot Discount Days',
-		desc: 'Each Friday we deliver highest discounts',
-		author: 'Chef Deming',
+		title: 'Birthdays',
+		desc: 'In the new era of technology we look in the future with certainty for life.',
+		author: 'Restaurant',
 		date: '30 min ago',
 		location: 'Turkey, Istambul',
-		img: '/img/discount.webp',
+		img: '/img/birthday.jpg',
 	},
 	{
-		title: 'Coming Soon',
-		desc: 'Be ready for fresh Arrivals from Monday!',
-		author: 'Belissimo Arthur',
+		title: 'Weddings',
+		desc: 'In the new era of technology we look in the future with certainty for life!',
+		author: 'Restaurant',
 		date: '2 days ago',
 		location: 'Turkey, Istambul',
-		img: '/img/fresh.webp',
+		img: '/img/wedding.jpg',
 	},
 	{
 		title: 'New Project Lunch',
@@ -21,7 +21,7 @@ export const plans = [
 		author: 'Morgan News',
 		date: '5 days ago',
 		location: 'USA, Florida',
-		img: '/img/coming.webp',
+		img: '/img/restaurant.jpg',
 	},
 	{
 		title: 'Join us on sns',
@@ -29,6 +29,6 @@ export const plans = [
 		author: 'Belissimo Agent',
 		date: 'A week ago',
 		location: 'Europe, France',
-		img: '/img/food-city.webp',
+		img: '/img/health-food.jpg',
 	},
 ];

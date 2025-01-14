@@ -10,7 +10,7 @@ export default function Events() {
     <div className={"events-frame"}>
       <Stack className={"events-main"}>
         <Box className={"events-text"}>
-          <span className={"category-title"}>Events</span>
+          <span className={"category-title"}>We also offer unique services for your events</span>
         </Box>
 
         <Swiper

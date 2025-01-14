@@ -1,6 +1,6 @@
 .homepage {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 /** STATISTICS **/
@@ -14,23 +14,23 @@
 }
 
 .homepage .static-frame .info {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .homepage .static-frame .info .static-box {
-    width: 200px;
-    height: 116px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
- }
+  width: 200px;
+  height: 116px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 
- .homepage .static-frame .info .static-box div{
+.homepage .static-frame .info .static-box div {
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -40,8 +40,8 @@
 }
 
 .homepage .static-frame .info .static-box .static-text {
-  color: #1A1A1A;
-  font-family: 'Poppins';
+  color: #1a1a1a;
+  font-family: "Poppins";
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -50,121 +50,59 @@
 
 .homepage .static-frame .info .static-box .static-free {
   color: #999;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 21px */
 }
 
-/** Popular **/
-
-.homepage .popular-dishes-frame {
-    width: 100%;
-    height: 580px;
-    display: flex;
-    background: #f8f8f8;
-}
- 
-.homepage .popular-dishes-frame .popular-section{
-    margin-top: 45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.homepage .popular-dishes-frame .popular-section .cards-frame {
-    width: 100%;
-    margin-top: 43px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.homepage .popular-dishes-frame .popular-section .category-title {
-   text-align: center;
-   font-family: 'Roboto Serif';
-   font-size: 36px;
-   font-style: normal;
-   font-weight: 600;
-   line-height: normal;
-   letter-spacing: 1.44px;
-   color: #000;
-}
-
-.homepage .popular-dishes-frame .cards-frame .card {
-    min-height: 430px;
-    min-width: 300px;
-    cursor: pointer;
-}
-
-.homepage .popular-dishes-frame .cards-frame .card .card-cover {
-   background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0) 200px
-   ),
-   linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 300px);
-}
-
-.homepage .popular-dishes-frame .popular-section .no-data {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 34px;
-    color: #e3c08d;
-}
-
 /** NEW PRODUCTS **/
 
 .homepage .new-products-frame {
-    width: 100%;
-    height: 605px;
-    background: #f8f8f8;
-    display: flex;
+  width: 100%;
+  height: auto;
+  background: #f8f8f8;
+  display: flex;
 }
 
 .homepage .main {
-    margin-top: 45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .homepage .new-products-frame .category-title {
-    font-family: 'Dancing Script';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 43px;
+  font-family: "Dancing Script";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
 }
 
 .homepage .new-products-frame .main .cards-frame {
-    width: 100%;
-    margin: 47px 2px 2px 2px;
-    flex-direction: row;
-    justify-content: space-between;
+  position: relative;
+  width: 920px;
+  height: 750px;
+  gap: 15px;
+  margin: 47px 2px 2px 2px;
+  flex-wrap: wrap;
 }
 
 .homepage .new-products-frame .main .card {
-    width: 290px;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    border-radius: 30px;
-    border: none;
-    background: linear-gradient(180deg, rgba(231, 249, 253, 0.00) 0%, #E7F9FD 100%);
-    box-shadow: 12px 20px 12px 0px rgba(2, 14, 50, 0.07);;
-    transition: transform 0.3s;
-    cursor: pointer;
+  position: relative;
+  width: 290px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(190deg, rgba(78, 80, 80, 0) 0%, #e6e9e9dd 100%);
+  box-shadow: 12px 4px 12px 0px rgba(2, 14, 50, 0.07);
+  transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .homepage .new-products-frame .main .card:hover {
@@ -192,7 +130,7 @@
 
 .homepage .new-products-frame .product-detail .desc {
   color: #000;
-  font-family: 'Dancing Script';
+  font-family: "Dancing Script";
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -216,26 +154,30 @@
 }
 
 .homepage .new-products-frame .product-detail .title {
-  width: 65px;
+  width: 75px;
   gap: 5px;
   display: flex;
   align-items: center;
-  color: rgba(0, 0, 0, 0.60);
-  font-family: 'Dancing Script';
-  font-size: 16px;
+  color: #000;
+  font-family: "Dancing Script";
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  letter-spacing: -0.28px;
+}
+
+.homepage .new-products-frame .product-detail .title .rest-icon {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
 }
 
 .homepage .new-products-frame .product-detail .price {
-  width: 20px;
   display: flex;
-  gap: 6px;
+  gap: 5px;
   margin-left: 15px;
   align-items: center;
-  color: #AD343E;
+  color: #ad343e;
   font-family: "DM Sans";
   font-size: 16px;
   font-style: normal;
@@ -245,13 +187,13 @@
 }
 
 .homepage .new-products-frame .product-detail .price-cnt {
-  color: rgba(0, 0, 0, 0.60);
-  font-family: 'Dancing Script';
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Dancing Script";
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  letter-spacing: -0.30px;
+  letter-spacing: -0.3px;
 }
 
 .homepage .new-products-frame .product-detail .divider {
@@ -261,54 +203,178 @@
 }
 
 .homepage .new-products-frame .product-detail .views {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
 }
 
 .homepage .new-products-frame .no-data {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 34px;
-    color: #e3c08d;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 34px;
+  color: #e3c08d;
+}
+
+/** BRANDS LOGO **/
+.brands-logo {
+  width: 100%;
+  height: 580px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #f1f1f1;
+}
+
+.brands-logo .restaurant-logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.brands-logo .family-brands {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.brands-logo .order-app {
+  position: relative;
+  width: 640px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.brands-logo .order-app .order-logo {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.brands-logo .order-app .order-logo2 {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brands-logo .order-app .order-logo3 {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.brands-logo .order-app .order-logo img {
+  position: relative;
+  width: 160px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.brands-logo .order-app .order-logo2 img {
+  position: relative;
+  width: 160px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.brands-logo .order-app .order-logo3 img {
+  position: relative;
+  width: 160px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.brands-logo .family-brands span {
+  width: 320px;
+  color: #2c2f24;
+  font-family: "Playfair Display";
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60.5px;
+}
+
+.brands-logo .family-brands p {
+  width: 320px;
+  color: #414536;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.brands-logo .restaurant-img {
+  width: 1250px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 /** ADVERTISEMENT **/
 
 .homepage .ads-restaurant-frame {
-    width: 100%;
-    height: 693px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    transform: perspective(0px);
-    box-shadow: -3px 0px 20px 14px #34343480;
+  width: 100%;
+  height: 693px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transform: perspective(0px);
+  box-shadow: -3px 0px 20px 14px #34343480;
 }
 
 .homepage .ads-restaurant-frame .ads-video {
-    width: 100%;
-    background: #0c0e12;
-    display: flex;
-    box-shadow: 0px -8px 90px rgb(215 215 255);
-    transform: scale(1.5);
-    overflow: hidden;
+  width: 100%;
+  background: #0c0e12;
+  display: flex;
+  box-shadow: 0px -8px 90px rgb(215 215 255);
+  transform: scale(1.5);
+  overflow: hidden;
 }
 
 /** ACTIVE USERS **/
 
 .homepage .active-users-frame {
-    width: 100%;
-    height: 766px;
-    background: #f8f8f8;
-    display: flex;
+  width: 100%;
+  height: 766px;
+  background: #f8f8f8;
+  display: flex;
 }
 
 .homepage .active-users-frame .main {
@@ -320,7 +386,7 @@
 }
 
 .homepage .active-users-frame .category-title {
-  font-family: 'Roboto Serif';
+  font-family: "Roboto Serif";
   margin-top: 50px;
   font-size: 36px;
   font-weight: 600;
@@ -331,10 +397,10 @@
 }
 
 .homepage .active-users-frame .main .cards-frame {
-    width: 100%;
-    margin: 30px 0px 0px 0px;
-    flex-direction: row;
-    justify-content: space-between;
+  width: 100%;
+  margin: 30px 0px 0px 0px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .homepage .active-users-frame .main .card {
@@ -348,7 +414,7 @@
 
 .homepage .active-users-frame .main .card .member-post {
   margin-top: 15px;
-  color: #AD343E;
+  color: #ad343e;
   font-family: "DM Sans";
   font-size: 24px;
   font-style: normal;
@@ -366,14 +432,14 @@
   line-height: 28px; /* 155.556% */
 }
 
-.homepage .active-users-frame .main .card .divider{
+.homepage .active-users-frame .main .card .divider {
   width: 270px;
   height: 1px;
   opacity: 0.7;
   background: #414536;
 }
 
-.homepage .active-users-frame .main .card .user-img  {
+.homepage .active-users-frame .main .card .user-img {
   position: relative;
   width: 100%;
   gap: 10px;
@@ -392,7 +458,7 @@
 }
 
 .homepage .active-users-frame .main .card .user-img span {
-  color: #2C2F24;
+  color: #2c2f24;
   font-family: "DM Sans";
   font-size: 16px;
   font-style: normal;
@@ -410,205 +476,204 @@
 }
 
 .homepage .active-users-frame .no-data {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 34px;
-    color: #e3c08d;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 34px;
+  color: #e3c08d;
 }
 
 /** EVENTS **/
 
 .homepage .events-frame {
-    width: 100%;
-    height: 745px;
-    background: #f8f8ff;
-    display: flex;
-  }
-  
-  .homepage .events-frame .category-title {
-    font-family: "Dancing Script";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 43px;
-    padding-top: 20px;
-  }
-  
-  .homepage .events-frame .events-main {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .homepage .events-frame .events-main .events-text {
-    width: auto;
-    height: 70px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .homepage .events-frame .events-main .prev-next-frame {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    margin: 40px 0 40px 0;
-    height: 25px;
-  }
-  
-  .homepage .events-frame .dot-frame-pagination {
-    position: relative;
-    width: auto;
-    display: flex;
-  }
-  
-  .homepage .events-frame .events-main .events-info {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .homepage .events-frame .events-info .events-info-frame {
-    position: relative;
-    width: 500px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .homepage .events-frame .events-img {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    border-radius: 10px;
-    background-size: cover;
-  }
-  
-  .homepage .events-frame .events-desc {
-    position: absolute;
-    margin-bottom: 7px;
-    padding: 10px;
-    display: flex;
-    width: 90%;
-    height: auto;
-    bottom: 5px;
-    background: #f8f8ff;
-    box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
-    border-radius: 8px;
-  }
-  
-  .homepage .events-frame .events-desc .events-bott {
-    width: 97%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .homepage .events-frame .events-desc .events-bott .bott-left {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .homepage .events-frame .bott-left .event-title-speaker {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .homepage .events-frame .event-title-speaker .event-organizator {
-    display: flex;
-    align-items: center;
-  }
-  
-  .homepage .events-frame .event-title-speaker .event-organizator img {
-    width: 20px;
-    margin-right: 10px;
-  }
-  
-  .homepage .events-frame .event-organizator .spec-text-author {
-    font-family: "GT Walsheim Pro";
-    font-style: normal;
-    line-height: 34px;
-    color: #140342;
-  }
-  
-  .homepage .events-frame .bott-left .text-desc {
-    margin-top: 10px;
-    font-family: "GT Walsheim Pro";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 26px;
-    color: #4f547b;
-  }
-  
-  .homepage .events-frame .bott-left .bott-info {
-    margin-top: 10px;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    width: 100%;
-    height: 16px;
-  }
-  
-  .homepage .events-frame .bott-info .bott-info-main {
-    margin-left: 10px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    width: auto;
-    height: 100%;
-    font-family: "GT Walsheim Pro";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #4f547b;
-  }
-  
-  .homepage .events-frame .bott-info .bott-info-main img {
-    margin-right: 10px;
-  }
-  
-  .homepage .events-frame .swiper-wrapper {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .homepage .events-frame .swiper-pagination-bullet {
-    margin-right: 5px;
-    width: 8px;
-    height: 8px;
-    text-align: center;
-    opacity: 1;
-    background: #f8f8ff;
-    border-radius: 50%;
-  }
-  
-  .homepage .events-frame .swiper-pagination-bullet-active {
-    background: #343434;
-    border-radius: 50%;
-  }
-  
+  width: 100%;
+  height: 745px;
+  background: #f8f8ff;
+  display: flex;
+}
+
+.homepage .events-frame .category-title {
+  color: #2c2f24;
+  font-family: "Playfair Display";
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 60.5px; /* 110% */
+}
+
+.homepage .events-frame .events-main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .events-frame .events-main .events-text {
+  width: 675px;
+  height: auto;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage .events-frame .events-main .prev-next-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  margin: 40px 0 40px 0;
+  height: 25px;
+}
+
+.homepage .events-frame .dot-frame-pagination {
+  position: relative;
+  width: auto;
+  display: flex;
+}
+
+.homepage .events-frame .events-main .events-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homepage .events-frame .events-info .events-info-frame {
+  position: relative;
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .events-frame .events-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 10px;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.homepage .events-frame .events-desc {
+  position: absolute;
+  margin-bottom: 7px;
+  padding: 10px;
+  display: flex;
+  width: 90%;
+  height: auto;
+  bottom: 5px;
+  background: #f8f8ff;
+  box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
+  border-radius: 8px;
+}
+
+.homepage .events-frame .events-desc .events-bott {
+  width: 97%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .events-frame .events-desc .events-bott .bott-left {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.homepage .events-frame .bott-left .event-title-speaker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homepage .events-frame .event-title-speaker .event-organizator {
+  display: flex;
+  align-items: center;
+}
+
+.homepage .events-frame .event-title-speaker .event-organizator img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.homepage .events-frame .event-organizator .spec-text-author {
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  line-height: 34px;
+  color: #140342;
+}
+
+.homepage .events-frame .bott-left .text-desc {
+  margin-top: 10px;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.homepage .events-frame .bott-left .bott-info {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 100%;
+  height: 16px;
+}
+
+.homepage .events-frame .bott-info .bott-info-main {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: auto;
+  height: 100%;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.homepage .events-frame .bott-info .bott-info-main img {
+  margin-right: 10px;
+}
+
+.homepage .events-frame .swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.homepage .events-frame .swiper-pagination-bullet {
+  margin-right: 5px;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  opacity: 1;
+  background: #f8f8ff;
+  border-radius: 50%;
+}
+
+.homepage .events-frame .swiper-pagination-bullet-active {
+  background: #343434;
+  border-radius: 50%;
+}
