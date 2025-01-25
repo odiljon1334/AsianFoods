@@ -31,7 +31,7 @@ export default function HomePage() {
     product
       .getProducts({
         page: 1,
-        limit: 6,
+        limit: 8,
         order: "createdAt",
       })
       .then(data => {

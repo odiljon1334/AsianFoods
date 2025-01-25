@@ -142,6 +142,13 @@ input:focus {
   display: block;
 }
 
+.products-page .products .list-category-section {
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: row;
+}
+
 .products-page .products .product-category {
   margin-top: 50px;
   width: 50px;
@@ -161,15 +168,8 @@ input:focus {
   -webkit-transform: rotate(-90deg);
 }
 
-.products-page .products .list-category-section {
-  width: 100%;
-  min-height: 600px;
-  display: flex;
-  flex-direction: row;
-}
-
 .products-page .products .list-category-section .order {
-  width: 70px;
+  width: 80px;
   height: 36px;
   border-radius: 8px;
   font-size: 12px;
@@ -271,7 +271,13 @@ input:focus {
 
 .products-page .products .product-card .product-img {
   position: relative;
-  background-size: cover;
+  cursor: pointer;
+}
+
+.products-page .products .product-card .product-img img {
+  height: 250px;
+  position: relative;
+  object-fit: cover;
   cursor: pointer;
 }
 
@@ -311,7 +317,7 @@ input:focus {
   cursor: pointer;
   z-index: 5;
   opacity: 0;
-  transition: opcity 0.5s ease;
+  transition: opacity 0.5s ease;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 50%;
 }
@@ -581,11 +587,12 @@ input:focus {
 }
 
 .products-page .chosen-product .chosen-product-info {
-  padding: 30px 40px;
+  padding: 20px 30px;
   width: 49%;
   height: 596px;
   display: flex;
   border-radius: 16px;
+  border: 1px solid #e0e0e0;
 }
 
 .products-page .chosen-product .chosen-product-info .info-box {
@@ -599,7 +606,7 @@ input:focus {
   width: 100%;
   height: auto;
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
   flex-direction: column;
 }
 
@@ -711,7 +718,7 @@ input:focus {
   position: relative;
   width: 200px;
   height: auto;
-  margin-top: 32px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -730,7 +737,7 @@ input:focus {
 .products-page .chosen-product .button-box {
   position: relative;
   width: 100%;
-  margin-top: 73px;
+  margin-top: 20px;
   margin-bottom: 30px;
   height: auto;
   display: flex;

@@ -46,7 +46,7 @@ export default function NewDishes() {
                   return (
                     <Card
                       key={product._id}
-                      variant="plain"
+                      variant="outlined"
                       className={"card"}
                       onClick={() => chosenDishHandler(product._id)}
                     >
@@ -60,7 +60,7 @@ export default function NewDishes() {
                         className={"product-detail"}
                       >
                         <Typography className={"desc"}>
-                          {product.productDesc}
+                          {product.productName}
                         </Typography>
                         <Stack className="info">
                           <Stack flexDirection={"row"} sx={{ gap: "10px" }}>

@@ -241,6 +241,20 @@ export default function ProductComponent(props: ProductsProps) {
                   className={"order"}
                   variant={"contained"}
                   color={
+                    productSearch.productCollection === ProductCollection.PIZZA
+                      ? "primary"
+                      : "secondary"
+                  }
+                  onClick={() =>
+                    searchCollectionHandler(ProductCollection.PIZZA)
+                  }
+                >
+                  PIZZA
+                </Button>
+                <Button
+                  className={"order"}
+                  variant={"contained"}
+                  color={
                     productSearch.productCollection === ProductCollection.DISH
                       ? "primary"
                       : "secondary"
@@ -282,7 +296,7 @@ export default function ProductComponent(props: ProductsProps) {
                               sx={{ minWidth: 200 }}
                               className={"product-img"}
                             >
-                              <img src={imagePath} loading="lazy" alt="" />
+                              <img src={imagePath} alt="" />
                               <Badge
                                 className={"view-btn"}
                                 badgeContent={product.productViews}
